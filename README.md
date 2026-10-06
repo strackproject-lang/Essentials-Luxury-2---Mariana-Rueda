@@ -1,0 +1,526 @@
+[index (1).html](https://github.com/user-attachments/files/33129136/index.1.html)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi tienda</title>
+  <style>
+    /* Paleta de Colores Elegante - Essentials Parfums */
+    :root {
+      --bg-principal: #0a0b0e;
+      --bg-card: #12141a;
+      --bg-elevated: #1a1d26;
+      --texto-principal: #f0f4f8;
+      --texto-secundario: #8a99ad;
+      --azul-electrico: #0066ff;
+      --azul-degradado: linear-gradient(135deg, #0052cc 0%, #00d2ff 100%);
+      --borde-elegante: rgba(255, 255, 255, 0.08);
+      --sombra-glow: 0 8px 30px rgba(0, 102, 255, 0.15);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: var(--bg-principal);
+      background-image: radial-gradient(circle at 50% 0%, #111a2e 0%, var(--bg-principal) 70%);
+      color: var(--texto-principal);
+      padding: 30px 20px;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      background: linear-gradient(180deg, #ffffff 0%, #a0b2ce 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slogan {
+      color: var(--texto-secundario);
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 35px;
+    }
+
+    /* Beneficios de la tienda */
+
+    .beneficios {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+
+      background: var(--bg-card);
+      color: #e1e7f0;
+      border: 1px solid var(--borde-elegante);
+      border-radius: 12px;
+
+      padding: 16px 24px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .beneficios span {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Catálogo */
+
+    #productos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .producto {
+      border: 1px solid var(--borde-elegante);
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 16px;
+      width: 240px;
+      vertical-align: top;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 102, 255, 0.4);
+      box-shadow: var(--sombra-glow);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      background-color: var(--bg-elevated);
+    }
+
+    .producto h3 {
+      color: #ffffff;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .descripcion {
+      font-size: 13px;
+      color: var(--texto-secundario);
+      min-height: 42px;
+      line-height: 1.4;
+    }
+
+    .precio {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    /* Botones */
+
+    .producto button {
+      background: var(--azul-degradado);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      width: 100%;
+      transition: opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .producto button:hover {
+      opacity: 0.9;
+      box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+    }
+
+    /* Carrito */
+
+    .carrito {
+      margin-top: 45px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--borde-elegante);
+      border-radius: 14px;
+      text-align: left;
+      display: inline-block;
+      min-width: 360px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .carrito h2 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--borde-elegante);
+      padding-bottom: 10px;
+    }
+
+    #lista-carrito {
+      padding-left: 20px;
+      color: var(--texto-principal);
+    }
+
+    #lista-carrito li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .resumen {
+      border-top: 1px solid var(--borde-elegante);
+      margin-top: 20px;
+      padding-top: 14px;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    /* Botón vaciar */
+
+    .vaciar {
+      background-color: transparent;
+      border: 1px solid #ff4d4d;
+      color: #ff4d4d;
+      padding: 9px 14px;
+      margin-top: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .vaciar:hover {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    /* Botón finalizar */
+
+    .finalizar {
+      background: var(--azul-degradado);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      margin-top: 12px;
+      margin-left: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .finalizar:hover {
+      opacity: 0.9;
+      box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>Essentials Luxury </h1>
+
+  <p class="slogan">
+    Ecommerce de perfumes hechos para tu personalidad
+  </p>
+
+  <div class="beneficios">
+    <span>🚚 Envíos en Bogotá</span>
+    <span>🔒 Compra segura</span>
+    <span>📦 Seguimiento de pedido</span>
+  </div>
+
+  <div id="productos"></div>
+
+  <div class="carrito">
+    <h2>🧾 Carrito de Compras</h2>
+
+    <ul id="lista-carrito"></ul>
+
+    <div class="resumen">
+      <p>
+        Envío: <strong>Gratis</strong>
+      </p>
+
+      <p class="total">
+        Total: $<span id="total">0</span>
+      </p>
+    </div>
+
+    <button class="vaciar" onclick="vaciarCarrito()">
+      🧼 Vaciar Carrito
+    </button>
+
+    <button class="finalizar" onclick="finalizarCompra()">
+      ✅ Finalizar Compra
+    </button>
+  </div>
+
+  <script>
+    const productos = [
+      {
+        id: 1,
+        nombre: "Versace Eros EDT",
+        descripcion: "Una mezcla dulce con frescas notas cítricas.",
+        precio: 220000,
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSVXyIcUuFLBJDjVbUHmAlINGFW_R9MsoSZx_SKFLEEOVcRLwZ4MOBVp7&s=10"
+      },
+      {
+        id: 2,
+        nombre: "Valentino Born In Roma",
+        descripcion: "Sofisticado, intenso y naturalmente seductor",
+        precio: 230000,
+        imagen: "https://fimgs.net/mdimg/perfume-thumbs/375x500.71761.jpg"
+      },
+      {
+        id: 3,
+        nombre: "9 PM",
+        descripcion: "Intenso, dulce y seductor",
+        precio: 180000,
+        imagen: "https://fimgs.net/mdimg/perfume-thumbs/375x500.123313.jpg"
+      },
+      {
+        id: 4,
+        nombre: "Ambar oud Aqua",
+        descripcion: "Fresco, acuático y cautivador",
+        precio: 200000,
+        imagen: "https://www.jubbas.com/cdn/shop/files/aqua-dubai-amber-oud.jpg?v=1731758011"
+      },
+      {
+        id: 5,
+        nombre: "Arabians tonka",
+        descripcion: "Dulce, especiado e intenso",
+        precio: 350000,
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuyRQbFLDW_iJr225BpScjyZYpBH4anExW6E8wWcUiEAgluCc2TOaOlz4&s=10"
+      }
+    ];
+
+
+    /* ==============================
+       CARRITO
+    ================================ */
+
+    const carrito = [];
+
+    const contenedorProductos = document.getElementById("productos");
+    const listaCarrito = document.getElementById("lista-carrito");
+    const totalCarrito = document.getElementById("total");
+
+
+    /* ==============================
+       MOSTRAR PRODUCTOS
+    ================================ */
+
+    function mostrarProductos() {
+
+      contenedorProductos.innerHTML = "";
+
+      productos.forEach(prod => {
+
+        const div = document.createElement("div");
+
+        div.className = "producto";
+
+        div.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+
+          <h3>${prod.nombre}</h3>
+
+          <p class="descripcion">
+            ${prod.descripcion}
+          </p>
+
+          <p class="precio">
+            ${prod.precio.toLocaleString("es-CO", {
+              style: "currency",
+              currency: "COP",
+              minimumFractionDigits: 0
+            })}
+          </p>
+
+          <button onclick="agregarAlCarrito(${prod.id})">
+            Agregar al carrito
+          </button>
+        `;
+
+        contenedorProductos.appendChild(div);
+
+      });
+
+    }
+
+
+    /* ==============================
+       AGREGAR AL CARRITO
+    ================================ */
+
+    function agregarAlCarrito(id) {
+
+      const productoExistente =
+        carrito.find(p => p.id === id);
+
+      if (productoExistente) {
+
+        productoExistente.cantidad++;
+
+      } else {
+
+        const producto =
+          productos.find(p => p.id === id);
+
+        carrito.push({
+          ...producto,
+          cantidad: 1
+        });
+
+      }
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       ACTUALIZAR CARRITO
+    ================================ */
+
+    function actualizarCarrito() {
+
+      listaCarrito.innerHTML = "";
+
+      let total = 0;
+      let totalItems = 0;
+
+      carrito.forEach(item => {
+
+        const li =
+          document.createElement("li");
+
+        const subtotal =
+          item.precio * item.cantidad;
+
+        li.textContent =
+          `${item.nombre} x${item.cantidad} — ` +
+          subtotal.toLocaleString("es-CO", {
+            style: "currency",
+            currency: "COP",
+            minimumFractionDigits: 0
+          });
+
+        listaCarrito.appendChild(li);
+
+        total += subtotal;
+        totalItems += item.cantidad;
+
+      });
+
+      totalCarrito.textContent =
+        total.toLocaleString("es-CO");
+
+      actualizarTituloCarrito(totalItems);
+
+    }
+
+
+    /* ==============================
+       CONTADOR DEL CARRITO
+    ================================ */
+
+    function actualizarTituloCarrito(cantidad) {
+
+      const titulo =
+        document.querySelector(".carrito h2");
+
+      titulo.textContent =
+        `🧾 Carrito de Compras (${cantidad})`;
+
+    }
+
+
+    /* ==============================
+       VACIAR CARRITO
+    ================================ */
+
+    function vaciarCarrito() {
+
+      if (carrito.length === 0) {
+
+        alert("🛒 El carrito ya está vacío.");
+
+        return;
+
+      }
+
+      if (
+        confirm(
+          "¿Estás seguro de que quieres vaciar el carrito?"
+        )
+      ) {
+
+        carrito.length = 0;
+
+        actualizarCarrito();
+
+      }
+
+    }
+
+
+    /* ==============================
+       FINALIZAR COMPRA
+    ================================ */
+
+    function finalizarCompra() {
+
+      if (carrito.length === 0) {
+
+        alert(
+          "🛒 Tu carrito está vacío. Agrega productos antes de finalizar la compra."
+        );
+
+        return;
+
+      }
+
+      alert(
+        "🎉 ¡Pedido simulado confirmado!\n\n" +
+        "En un eCommerce real, ahora entrarían en acción " +
+        "el backend, la pasarela de pago y la logística."
+      );
+
+      carrito.length = 0;
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       INICIAR TIENDA
+    ================================ */
+
+    mostrarProductos();
+  </script>
+</body>
+</html>
